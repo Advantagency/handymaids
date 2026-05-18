@@ -614,11 +614,6 @@
                     <p>Interior and exterior windows. Crystal clear results for a brighter home.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🧽</div>
-                    <h3>Carpet Cleaning</h3>
-                    <p>Professional carpet and upholstery cleaning. Removes stains and refreshes fabrics.</p>
-                </div>
-                <div class="service-card">
                     <div class="service-icon">📅</div>
                     <h3>Recurring Service</h3>
                     <p>Weekly, bi-weekly, or monthly cleaning plans. Consistent cleanliness on your schedule.</p>
@@ -629,46 +624,38 @@
 
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2>Pricing Plans</h2>
+            <h2>Simple, Transparent Pricing</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>Basic</h3>
-                    <div class="price">$99</div>
-                    <div class="duration">for one-time cleaning</div>
+                    <h3>One Worker</h3>
+                    <div class="price">$25</div>
+                    <div class="duration">per hour</div>
                     <ul class="features">
-                        <li>Standard 2-3 bedroom home</li>
-                        <li>2-3 hours service</li>
-                        <li>Includes vacuuming & dusting</li>
-                        <li>Bathroom cleaning</li>
+                        <li>Perfect for smaller jobs</li>
+                        <li>Single-room cleaning</li>
+                        <li>Quick tidying up</li>
+                        <li>Office spaces</li>
+                        <li>Flexible scheduling</li>
                     </ul>
                     <button class="btn-primary" onclick="openBookingModal()">Book Now</button>
                 </div>
                 <div class="pricing-card featured">
-                    <h3>Standard</h3>
-                    <div class="price">$149</div>
-                    <div class="duration">for deep cleaning</div>
+                    <h3>Two Workers</h3>
+                    <div class="price">$50</div>
+                    <div class="duration">per hour</div>
                     <ul class="features">
-                        <li>Up to 4 bedroom home</li>
-                        <li>4-5 hours service</li>
-                        <li>Deep cleaning included</li>
-                        <li>Kitchen & bathrooms</li>
-                        <li>Carpet vacuuming</li>
+                        <li>Twice the speed</li>
+                        <li>Larger homes</li>
+                        <li>Deep cleaning</li>
+                        <li>Get done faster</li>
+                        <li>Most popular option</li>
                     </ul>
                     <button class="btn-primary" onclick="openBookingModal()">Book Now</button>
                 </div>
-                <div class="pricing-card">
-                    <h3>Premium</h3>
-                    <div class="price">Custom</div>
-                    <div class="duration">for custom needs</div>
-                    <ul class="features">
-                        <li>Large homes (5+ bed)</li>
-                        <li>Full day service</li>
-                        <li>Move-out cleaning</li>
-                        <li>Special requests</li>
-                        <li>Free estimate</li>
-                    </ul>
-                    <button class="btn-primary" onclick="openBookingModal()">Get Quote</button>
-                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; color: #666;">
+                <p style="font-size: 1.1rem;">Choose 1 worker for smaller jobs or 2 workers for faster, larger projects.</p>
+                <p style="margin-top: 1rem;">Example: 3 hours with 2 workers = $150. 2 hours with 1 worker = $50.</p>
             </div>
         </div>
     </section>
@@ -685,7 +672,7 @@
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
                     <p>"Great attention to detail. They cleaned areas I didn't even ask them to. Will definitely book again!"</p>
-                    <div class="testimonial-author">— John Smith, Yuma</div>
+                    <div class="testimonial-author">— Marcus Jobe, Yuma</div>
                 </div>
                 <div class="testimonial">
                     <div class="stars">★★★★★</div>
@@ -697,23 +684,23 @@
     </section>
 
     <section class="contact" id="contact">
-        <h2>Get in Touch</h2>
+        <h2>Ready to Get Your Place Cleaned?</h2>
         <div class="contact-info">
+            <div class="contact-item">
+                <h4>💰 Pricing</h4>
+                <p>1 Worker: $25/hr<br>2 Workers: $50/hr</p>
+            </div>
             <div class="contact-item">
                 <h4>📞 Call Us</h4>
                 <p>(928) 555-MAID</p>
             </div>
             <div class="contact-item">
                 <h4>📧 Email</h4>
-                <p>info@handymaids.com</p>
+                <p>Handymaids4u@gmail.com</p>
             </div>
             <div class="contact-item">
-                <h4>📍 Location</h4>
+                <h4>📍 Service Area</h4>
                 <p>Yuma, Arizona</p>
-            </div>
-            <div class="contact-item">
-                <h4>🕒 Hours</h4>
-                <p>Mon-Sat 8AM-6PM<br>Sunday by appointment</p>
             </div>
         </div>
         <button class="btn-primary" style="margin-top: 2rem;" onclick="openBookingModal()">Book Your Cleaning Today</button>
@@ -743,27 +730,59 @@
                     <input type="email" name="email" required placeholder="john@example.com">
                 </div>
                 <div class="form-group">
-                    <label>Service Type *</label>
-                    <select name="service" required>
-                        <option value="">Select a service...</option>
-                        <option value="House Cleaning">House Cleaning</option>
-                        <option value="Office Cleaning">Office Cleaning</option>
-                        <option value="Move-Out Cleaning">Move-Out Cleaning</option>
-                        <option value="Window Cleaning">Window Cleaning</option>
-                        <option value="Carpet Cleaning">Carpet Cleaning</option>
-                        <option value="Recurring Service">Recurring Service</option>
+                    <label>Number of Workers *</label>
+                    <select name="workers" required onchange="updatePriceDisplay()">
+                        <option value="">Select number of workers...</option>
+                        <option value="1 worker">1 Worker ($25/hour)</option>
+                        <option value="2 workers">2 Workers ($50/hour)</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label>How Many Hours Do You Need? *</label>
+                    <select name="hours" required onchange="updatePriceDisplay()">
+                        <option value="">Select hours...</option>
+                        <option value="1">1 hour</option>
+                        <option value="2">2 hours</option>
+                        <option value="3">3 hours</option>
+                        <option value="4">4 hours</option>
+                        <option value="5">5 hours</option>
+                        <option value="6">6 hours</option>
+                        <option value="8">8 hours</option>
+                        <option value="custom">Custom hours (will discuss price)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="priceDisplay" style="background: #f0f4ff; padding: 1rem; border-radius: 8px; text-align: center; display: none;">
+                    <p style="font-size: 1.1rem; color: #667eea; font-weight: bold;" id="estimatedPrice"></p>
                 </div>
                 <div class="form-group">
                     <label>Preferred Date *</label>
                     <input type="date" name="date" required>
                 </div>
                 <div class="form-group">
-                    <label>Additional Notes</label>
-                    <textarea name="message" placeholder="Tell us about your cleaning needs..."></textarea>
+                    <label>What Needs to Be Cleaned?</label>
+                    <textarea name="message" placeholder="House, office, windows, carpets, move-out cleaning, etc..."></textarea>
                 </div>
                 <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem;" id="submitBtn">Submit Booking Request</button>
             </form>
+            <script>
+                function updatePriceDisplay() {
+                    const workers = document.querySelector('select[name="workers"]').value;
+                    const hours = document.querySelector('select[name="hours"]').value;
+                    const priceDisplay = document.getElementById('priceDisplay');
+                    const estimatedPrice = document.getElementById('estimatedPrice');
+                    
+                    if (workers && hours && hours !== 'custom') {
+                        const hourlyRate = workers.includes('1') ? 25 : 50;
+                        const totalHours = parseInt(hours);
+                        const totalPrice = hourlyRate * totalHours;
+                        
+                        estimatedPrice.textContent = `Estimated Total: $${totalPrice} (${hours} hour${totalHours > 1 ? 's' : ''} × $${hourlyRate}/hour)`;
+                        priceDisplay.style.display = 'block';
+                    } else {
+                        priceDisplay.style.display = 'none';
+                    }
+                }
+            </script>
         </div>
     </div>
 
