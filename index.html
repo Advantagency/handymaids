@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandyMaids - Professional Cleaning Service in Yuma, AZ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .services {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .pricing {
+            padding: 4rem 2rem;
+            background: #f0f4ff;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            color: #667eea;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .pricing-card .duration {
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .features {
+            text-align: left;
+            margin: 1.5rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .features li {
+            list-style: none;
+            padding: 0.7rem 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .pricing-card .btn-primary {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+        }
+
+        .testimonials {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .testimonial p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .contact {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem 0;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #999;
+            float: right;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .services h2, .pricing h2, .testimonials h2 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">🏠 HandyMaids</div>
+            <nav>
+                <a onclick="scrollToSection('services')">Services</a>
+                <a onclick="scrollToSection('pricing')">Pricing</a>
+                <a onclick="scrollToSection('testimonials')">Reviews</a>
+                <a onclick="scrollToSection('contact')">Contact</a>
+                <button class="cta-button" onclick="openBookingModal()">Book Now</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professional Cleaning Service You Can Trust</h1>
+            <p>Sparkling clean homes in Yuma, Arizona. Fast, reliable, and always excellent service.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="openBookingModal()">Book a Cleaning Now</button>
+                <button class="btn-secondary" onclick="scrollToSection('contact')">Get in Touch</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧹</div>
+                    <h3>House Cleaning</h3>
+                    <p>Deep cleaning for your home from top to bottom. We handle every room with attention to detail.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Office Cleaning</h3>
+                    <p>Keep your workspace fresh and professional. Regular maintenance for a healthy work environment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Move-Out Cleaning</h3>
+                    <p>Complete move-out service. We'll prepare your home for the next residents or new owner.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪟</div>
+                    <h3>Window Cleaning</h3>
+                    <p>Interior and exterior windows. Crystal clear results for a brighter home.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧽</div>
+                    <h3>Carpet Cleaning</h3>
+                    <p>Professional carpet and upholstery cleaning. Removes stains and refreshes fabrics.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📅</div>
+                    <h3>Recurring Service</h3>
+                    <p>Weekly, bi-weekly, or monthly cleaning plans. Consistent cleanliness on your schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">$99</div>
+                    <div class="duration">for one-time cleaning</div>
+                    <ul class="features">
+                        <li>Standard 2-3 bedroom home</li>
+                        <li>2-3 hours service</li>
+                        <li>Includes vacuuming & dusting</li>
+                        <li>Bathroom cleaning</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Standard</h3>
+                    <div class="price">$149</div>
+                    <div class="duration">for deep cleaning</div>
+                    <ul class="features">
+                        <li>Up to 4 bedroom home</li>
+                        <li>4-5 hours service</li>
+                        <li>Deep cleaning included</li>
+                        <li>Kitchen & bathrooms</li>
+                        <li>Carpet vacuuming</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div class="price">Custom</div>
+                    <div class="duration">for custom needs</div>
+                    <ul class="features">
+                        <li>Large homes (5+ bed)</li>
+                        <li>Full day service</li>
+                        <li>Move-out cleaning</li>
+                        <li>Special requests</li>
+                        <li>Free estimate</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openBookingModal()">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"HandyMaids did an amazing job! My home has never looked better. Professional and efficient. Highly recommended!"</p>
+                    <div class="testimonial-author">— Maria Rodriguez, Yuma</div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"Great attention to detail. They cleaned areas I didn't even ask them to. Will definitely book again!"</p>
+                    <div class="testimonial-author">— John Smith, Yuma</div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"Quick, professional, and affordable. Best cleaning service in Yuma. Already recommended to my friends!"</p>
+                    <div class="testimonial-author">— Sarah Johnson, Yuma</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>📞 Call Us</h4>
+                <p>(928) 555-MAID</p>
+            </div>
+            <div class="contact-item">
+                <h4>📧 Email</h4>
+                <p>info@handymaids.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>📍 Location</h4>
+                <p>Yuma, Arizona</p>
+            </div>
+            <div class="contact-item">
+                <h4>🕒 Hours</h4>
+                <p>Mon-Sat 8AM-6PM<br>Sunday by appointment</p>
+            </div>
+        </div>
+        <button class="btn-primary" style="margin-top: 2rem;" onclick="openBookingModal()">Book Your Cleaning Today</button>
+    </section>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2 style="margin-bottom: 1.5rem; color: #333;">Book Your Cleaning</h2>
+            <div class="success-message" id="successMessage">
+                ✓ Thank you! We received your booking request. We'll contact you within 24 hours.
+            </div>
+            <div class="error-message" id="errorMessage">
+                ✗ Something went wrong. Please try again or call us directly.
+            </div>
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" name="phone" required placeholder="(928) 555-1234">
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Service Type *</label>
+                    <select name="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="House Cleaning">House Cleaning</option>
+                        <option value="Office Cleaning">Office Cleaning</option>
+                        <option value="Move-Out Cleaning">Move-Out Cleaning</option>
+                        <option value="Window Cleaning">Window Cleaning</option>
+                        <option value="Carpet Cleaning">Carpet Cleaning</option>
+                        <option value="Recurring Service">Recurring Service</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date *</label>
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Additional Notes</label>
+                    <textarea name="message" placeholder="Tell us about your cleaning needs..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem;" id="submitBtn">Submit Booking Request</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 HandyMaids LLC. All rights reserved. Professional Cleaning Service in Yuma, Arizona.</p>
+    </footer>
+
+    <script>
+        function openBookingModal() {
+            document.getElementById('bookingModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function handleBooking(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('bookingForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Send form data to Formspree
+            fetch('https://formspree.io/f/xqejklqw', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Booking Request';
+                    
+                    // Close modal after 3 seconds
+                    setTimeout(() => {
+                        closeBookingModal();
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Booking Request';
+            });
+        }
+    </script>
+</body>
+</html>
