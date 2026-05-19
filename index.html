@@ -635,9 +635,6 @@
                     <ul class="features">
                         <li>We keep it simple, at a flat rate</li>
                         <li>Anything that needs to be cleaned, we got you</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
                     </ul>
                     <button class="btn-primary" onclick="openBookingModal()">Book Now</button>
                 </div>
@@ -719,14 +716,6 @@
                     <input type="email" name="email" required placeholder="john@example.com">
                 </div>
                 <div class="form-group">
-                    <label>Number of Workers *</label>
-                    <select name="workers" required onchange="updatePriceDisplay()">
-                        <option value="">Select number of workers...</option>
-                        <option value="1 worker">1 Worker ($25/hour)</option>
-                        <option value="2 workers">2 Workers ($50/hour)</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label>How Many Hours Do You Need? *</label>
                     <select name="hours" required onchange="updatePriceDisplay()">
                         <option value="">Select hours...</option>
@@ -755,13 +744,12 @@
             </form>
             <script>
                 function updatePriceDisplay() {
-                    const workers = document.querySelector('select[name="workers"]').value;
                     const hours = document.querySelector('select[name="hours"]').value;
                     const priceDisplay = document.getElementById('priceDisplay');
                     const estimatedPrice = document.getElementById('estimatedPrice');
                     
                     if (workers && hours && hours !== 'custom') {
-                        const hourlyRate = workers.includes('1') ? 25 : 50;
+                        const hourlyRate = workers.includes('1') ? 25;
                         const totalHours = parseInt(hours);
                         const totalPrice = hourlyRate * totalHours;
                         
